@@ -1,0 +1,93 @@
+using System; 
+using System.Collections.Generic;
+
+public class Item{
+    private string _name;
+    private int _price;
+
+    public Item(string name, int price){
+        this._name = name;
+        this._price = price;
+    }
+    public string Name(){
+        return this._name;
+    }
+}
+public class Inventory{
+    private List<Item> items;
+    private Dictionary<string, int> itemCount = new Dictionary<string, int>();
+
+    
+    public Inventory(){
+        items = new List<Item>();
+    }    
+    public void Sort(){
+        Dictionary<string, int> itemCount = new Dictionary<string, int>();
+        foreach(Item item in items){
+            if(itemCount.ContainsKey(item.Name())){
+                itemCount[item.Name()] += 1;
+            }
+            else{
+                itemCount[item.Name()] = 1;
+            }
+        }
+        this.itemCount = itemCount;
+    }
+    public void AddItem(Item item){
+        items.Add(item);
+        Sort();
+    }
+    public void RemoveItem(Item item){
+        items.Remove(item);
+        Sort();
+    }
+    public void DisplayInventory(){
+        Console.WriteLine("Inventory:");
+        Sort();
+
+        foreach (KeyValuePair<string, int> kvp in itemCount){
+            Console.WriteLine(kvp.Key + " " + kvp.Value);
+        }
+    }
+}
+
+public class Character{
+    private int _health;
+    private int _armour;
+    private int _money;
+    private Inventory _inventory;
+    
+    public Character(int health, int armour, int money){
+        this._health = health;
+        this._armour = armour;
+        this._money = money;
+        this._inventory = new Inventory();
+        
+        }
+    public int TotalMoney(){
+        return this._money;
+    }
+    public void BuyItem(Item item, int price, int money){
+        if (money >= price){
+            money -= price;
+            _inventory.AddItem(item);
+        }
+        else{
+            Console.WriteLine("You don't have enough money to buy this item");
+            }
+        }
+    public void ShowInventory(){
+        _inventory.DisplayInventory();
+    }
+}
+public class Program {
+  public static void Main(string[] args) {
+    Console.WriteLine("hello world");
+      Character player1 = new Character(100, 0, 1000);
+      Item sword = new Item("Sword", 150);
+      player1.BuyItem(sword, 150, player1.TotalMoney());
+      player1.BuyItem(sword, 150, player1.TotalMoney());
+      
+      player1.ShowInventory();
+  }
+}
