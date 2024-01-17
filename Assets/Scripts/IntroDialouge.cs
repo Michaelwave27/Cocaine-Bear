@@ -10,6 +10,7 @@ public class IntroStory : MonoBehaviour
 {
     public GameObject CocaineTrail;
     public GameObject Note;
+    public GameObject StartFight;
     public Text myText;
     bool seen1 = false;
     bool seen2 = false;
@@ -23,6 +24,7 @@ public class IntroStory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartFight.SetActive(false);
         myText.text = "You step foot into the forest and begin your adventure...";
     }
 
@@ -48,6 +50,7 @@ public class IntroStory : MonoBehaviour
             Note.GetComponent<Renderer>().sortingOrder = 0;
             myText.text = "Before you could comprehend what you just read, a deer that looks high on cocaine charges towards you!";
             seen8 = true;
+            StartFight.SetActive(true);
         }
 
         if (Input.GetKeyUp(KeyCode.Z) && seen6 == true && seen7 == false)

@@ -23,6 +23,10 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
+    public void TutorialFight()
+    {
+        SceneManager.LoadScene("Tutorial Fight", LoadSceneMode.Single);
+    }
     public void Quit()
     {
         Application.Quit(); 

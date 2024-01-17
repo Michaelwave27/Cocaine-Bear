@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 141355604}
   - component: {fileID: 141355608}
   - component: {fileID: 141355609}
+  - component: {fileID: 141355610}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -221,10 +222,10 @@ RectTransform:
   m_Children:
   - {fileID: 913264355}
   - {fileID: 290019610}
-  - {fileID: 234470346}
-  - {fileID: 266443090}
   - {fileID: 143082328}
   - {fileID: 844488497}
+  - {fileID: 234470346}
+  - {fileID: 266443090}
   m_Father: {fileID: 1218831244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -253,6 +254,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 141355603}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dc39d33679c22419c59eef9bb50dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &141355610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141355603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dffc7e4b2a6e01b459108522d540d70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -269,7 +282,7 @@ GameObject:
   - component: {fileID: 143082330}
   - component: {fileID: 143082329}
   m_Layer: 5
-  m_Name: Character1 (2)
+  m_Name: Character2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000047684, y: 153}
+  m_AnchoredPosition: {x: 0, y: 153}
   m_SizeDelta: {x: 494.39, y: 607.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143082329
@@ -341,6 +354,18 @@ MonoBehaviour:
       - m_Target: {fileID: 141355608}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: IntroScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141355609}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Character2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -401,7 +426,7 @@ GameObject:
   - component: {fileID: 234470348}
   - component: {fileID: 234470347}
   m_Layer: 5
-  m_Name: Character1 (1)
+  m_Name: Character3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,6 +507,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 141355609}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Character3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &234470348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +569,7 @@ GameObject:
   - component: {fileID: 266443092}
   - component: {fileID: 266443091}
   m_Layer: 5
-  m_Name: Stats1 (1)
+  m_Name: Stats3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1094,7 @@ GameObject:
   - component: {fileID: 844488499}
   - component: {fileID: 844488498}
   m_Layer: 5
-  m_Name: Stats1 (2)
+  m_Name: Stats2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1270,6 +1307,18 @@ MonoBehaviour:
       - m_Target: {fileID: 141355608}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: IntroScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141355609}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Character1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
