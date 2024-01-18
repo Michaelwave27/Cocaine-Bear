@@ -257,6 +257,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88467624}
   m_CullTransparentMesh: 1
+--- !u!1 &90214888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90214890}
+  - component: {fileID: 90214889}
+  m_Layer: 0
+  m_Name: Character
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &90214889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90214888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc2f58e58bfa1f418d726acea598172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  defense: 2
+  money: 5
+  attack: 15
+--- !u!4 &90214890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90214888}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6127208, y: 0.5324053, z: -80.96952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1562749729}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180814587
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,9 +869,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1667810062}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Attack
+      - m_Target: {fileID: 1562749730}
+        m_TargetAssemblyTypeName: FightManager, Assembly-CSharp
+        m_MethodName: PlayerAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1562749731}
+        m_TargetAssemblyTypeName: ClearButtons, Assembly-CSharp
+        m_MethodName: clear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -964,6 +1024,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562749729}
+  - component: {fileID: 1562749730}
+  - component: {fileID: 1562749731}
   m_Layer: 0
   m_Name: Holder
   m_TagString: Untagged
@@ -986,8 +1048,39 @@ Transform:
   m_Children:
   - {fileID: 1359660357}
   - {fileID: 1667810057}
+  - {fileID: 90214890}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1562749730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562749728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194a7db98adce2544a7d00c23472b6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 90214889}
+  enemy: {fileID: 1833253398}
+--- !u!114 &1562749731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562749728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b224c9715a6aea54fb35fcc179fd2b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 1196868425}
+  item: {fileID: 180814587}
+  ultimate: {fileID: 1961045859}
+  hp: {fileID: 1935901447}
 --- !u!1 &1667810056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,8 +1094,6 @@ GameObject:
   - component: {fileID: 1667810059}
   - component: {fileID: 1667810058}
   - component: {fileID: 1667810061}
-  - component: {fileID: 1667810062}
-  - component: {fileID: 1667810063}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1110,30 +1201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffc7e4b2a6e01b459108522d540d70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1667810062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667810056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4dc39d33679c22419c59eef9bb50dce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1667810063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667810056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ae6b2eb16ee3a648868a6396eabca5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1833253395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,8 +1211,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1833253397}
   - component: {fileID: 1833253396}
+  - component: {fileID: 1833253398}
   m_Layer: 0
-  m_Name: Deer Photo
+  m_Name: Deer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1218,6 +1286,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1667810057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833253398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833253395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327c32033d3685e4e9b7c06e5e155dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  defense: 0
+  attack: 0
 --- !u!1 &1935901447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1313,7 @@ GameObject:
   - component: {fileID: 1935901450}
   - component: {fileID: 1935901449}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
