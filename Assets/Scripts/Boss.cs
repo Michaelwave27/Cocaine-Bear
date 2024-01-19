@@ -8,12 +8,13 @@ public class Boss : MonoBehaviour
     public int health;
     public int defense;
     public int attack;
-
-    public Boss(int health, int defense, int attack)
+    public new string name;
+    public Boss(int health, int defense, int attack, string name)
     {
         this.health = health;
         this.defense = defense;
         this.attack = attack;
+        this.name = name;
     }
         public void Attack(Player character)
     {

@@ -10,20 +10,12 @@ public class ClearButtons : MonoBehaviour
     public GameObject ultimate;
     public GameObject hp;
 
-    public void clear()
+    public void Clear()
     {
        attack.SetActive(false);
        item.SetActive(false);
        ultimate.SetActive(false);
        hp.SetActive(false);
 
-    }
-
-    public void unClear()
-    {
-        attack.SetActive(true);
-        item.SetActive(true);
-        ultimate.SetActive(true);
-        hp.SetActive(true);
     }
 }
