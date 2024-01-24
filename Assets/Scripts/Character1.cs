@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character1 : Player
+public class Character1 : Player 
 {
+    public static Character1 instance;
     public Character1(int health, int defense, int attack) : base(health, defense, attack)
     {
-    }
+        this.maxHealth = health;
 
-    public void Attack1(Boss enemy)
+    }
+    private void Start()
     {
-        //Character1.Attack(enemy);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
 }

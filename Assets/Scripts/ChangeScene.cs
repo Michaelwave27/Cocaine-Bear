@@ -27,6 +27,11 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial Fight", LoadSceneMode.Single);
     }
+
+    public void Fight2()
+    {
+        SceneManager.LoadScene("Fight2", LoadSceneMode.Single);
+    }
     public void Quit()
     {
         Application.Quit(); 

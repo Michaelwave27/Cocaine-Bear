@@ -9,6 +9,7 @@ public class ClearButtons : MonoBehaviour
     public GameObject item;
     public GameObject ultimate;
     public GameObject hp;
+    public GameObject textBox;
 
     public void Clear()
     {
@@ -16,6 +17,7 @@ public class ClearButtons : MonoBehaviour
        item.SetActive(false);
        ultimate.SetActive(false);
        hp.SetActive(false);
+       textBox.SetActive(false);   
 
     }
 }
