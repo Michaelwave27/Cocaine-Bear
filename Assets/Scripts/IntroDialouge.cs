@@ -80,7 +80,7 @@ public class IntroStory : MonoBehaviour
         
         if (Input.GetKeyUp(KeyCode.Z) && seen2 == true && seen3 == false)
         {
-            myText.text = "THATS F**KING COCAINE";
+            myText.text = "THATS F****** COCAINE";
             seen3 = true;
         }
         if (Input.GetKeyUp(KeyCode.Z) && seen1 == true && seen2 == false) 

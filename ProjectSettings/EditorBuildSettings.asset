@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalFIght.unity
     guid: 2262d1c06f59ced48af829b86b956006
+  - enabled: 1
+    path: Assets/Scenes/DeathFinal.unity
+    guid: 390f03da6b03ae44ba0e85c13e3caff5
   m_configObjects: {}

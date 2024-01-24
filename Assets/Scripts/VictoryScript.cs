@@ -49,7 +49,7 @@ public class VictoryScript : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Z) && seen1 == true && seen2 == false)
         {
-            int randomAttack = Random.Range(3, 8);
+            int randomAttack = Random.Range(5, 12);
             Character1.instance.attack += randomAttack;
             myText.text = $"With new fighting experience, you also gained {randomAttack} attack!!!";
             seen2 = true ;

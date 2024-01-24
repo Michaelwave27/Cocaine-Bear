@@ -13,7 +13,10 @@ public class CheckDeath : MonoBehaviour
             {
                 SceneManager.LoadScene("DeathFinal", LoadSceneMode.Single);
             }
-            SceneManager.LoadScene("Death", LoadSceneMode.Single);
+            else
+            {
+                SceneManager.LoadScene("Death", LoadSceneMode.Single);
+            }
         }
     }
 }

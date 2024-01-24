@@ -1602,8 +1602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  defense: 3
-  attack: 10
+  defense: 4
+  attack: 15
   name: Bob The Cow
   damage: 0
   crit: 0
@@ -1975,6 +1975,7 @@ MonoBehaviour:
   ultimateanimation: {fileID: 32900000, guid: 8174a10914cd68e4b88fbaadda057dde, type: 3}
   videoPlayer: {fileID: 1092863833}
   videoObject: {fileID: 1855960252}
+  original: {fileID: 0}
   finalAttack: {fileID: 0}
   finalBearAttack: {fileID: 0}
 --- !u!114 &1654949659

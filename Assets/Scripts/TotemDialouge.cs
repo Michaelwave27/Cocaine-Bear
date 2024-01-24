@@ -30,7 +30,7 @@ public class TotemDialouge : MonoBehaviour
         Ares.SetActive(false);
         Athena.SetActive(false);
         Hygieia.SetActive(false);
-        int randomDefense = Random.Range(2,6);
+        int randomDefense = Random.Range(3,8);
         Character1.instance.defense += randomDefense;
         myText.text = $"You worship the Athena totem and suddenly gain {randomDefense} defense.";
         next = true;
