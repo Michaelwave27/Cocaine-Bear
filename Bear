@@ -15,7 +15,7 @@ public class Item{
 }
 public class Inventory{
     private List<Item> items;
-    private Dictionary<string, int> itemCount = new Dictionary<string, int>();
+    public Dictionary<string, int> itemCount = new Dictionary<string, int>();
 
     
     public Inventory(){
@@ -67,6 +67,12 @@ public class Character{
     public int TotalMoney(){
         return this._money;
     }
+    public int Health(){
+        return this._health;
+    }
+    public void SetHealth(int healthleft){
+        this._health = healthleft;
+    }
     public void BuyItem(Item item, int price, int money){
         if (money >= price){
             money -= price;
@@ -79,15 +85,70 @@ public class Character{
     public void ShowInventory(){
         _inventory.DisplayInventory();
     }
+    public void Attack(Bear bear){
+        if(bear.Health() > 15)
+            bear.SetHealth(bear.Health()-15);
+        else
+            bear.SetHealth(bear.Health()-bear.Health());
+    }
+    public void Heal(Item healingpotion){
+        if(healingpotion.Name() == "Healing Potion"){
+            if(this._health < 100)
+                Console.WriteLine("You are already at full health");
+            else{
+                if(this._inventory.itemCount[healingpotion.Name()] > 0){
+                    if(this._health + 15 > 100)
+                        this._health = 100;
+                    else
+                        this._health += 15;
+                    this._inventory.RemoveItem(healingpotion);
+                    }
+            }
+        }
+    }
+}
+public class Bear{
+    private int _health;
+    private int _armour;
+    
+    public Bear(int health, int armour){
+        this._health = health;
+        this._armour = armour;
+    }
+    public int Health(){
+        return this._health;
+    }
+    public void SetHealth(int healthleft){
+        this._health = healthleft;
+    }
+    public void Attack(Character character){
+        if(character.Health() > 25){
+            character.SetHealth(character.Health()-25);
+            }
+        else{
+            character.SetHealth(character.Health()-character.Health());
+            }
+    }
 }
 public class Program {
   public static void Main(string[] args) {
     Console.WriteLine("hello world");
       Character player1 = new Character(100, 0, 1000);
       Item sword = new Item("Sword", 150);
+      Item healingpotion = new Item("Healing Potion", 50);
+      player1.BuyItem(healingpotion, 50, player1.TotalMoney());;
       player1.BuyItem(sword, 150, player1.TotalMoney());
       player1.BuyItem(sword, 150, player1.TotalMoney());
-      
       player1.ShowInventory();
+      Bear bear = new Bear(100, 0);
+      player1.Attack(bear);
+      Console.WriteLine(bear.Health());
+      player1.Heal(healingpotion);
+      bear.Attack(player1);
+      Console.WriteLine(player1.Health());
+      player1.Heal(healingpotion);
+      Console.WriteLine(player1.Health());
+      
+      
   }
 }
